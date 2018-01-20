@@ -9,7 +9,8 @@ angular
         CommonModule,
         ComponentsModule,
         uiRouter
-    ]).config(($stateProvider) => {
+    ])
+    .config(($stateProvider, $urlRouterProvider) => {
         // TODO: replace the routes from here
         $stateProvider
             .state('main', {
@@ -28,4 +29,6 @@ angular
                 url: 'history',
                 template: '<app-history></app-history>'
             });
+
+        $urlRouterProvider.otherwise('/');
     })
