@@ -1,12 +1,8 @@
-class BaseComponentCtrl {
-
-    $onInit() {
-        console.log("base init");
-    }
+class BaseComponent {
 
 }
 
-export const BaseComponent = {
+export default {
     template: require('./base.html'),
-    controller: BaseComponentCtrl
+    controller: BaseComponent
 };

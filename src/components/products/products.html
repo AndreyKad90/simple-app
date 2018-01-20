@@ -1,3 +1,38 @@
-<h1>
-    Product list
-</h1>
+<h3>
+    Products
+</h3>
+<div>
+    <input type="text" 
+        ng-model="query"
+        ng-model-options="{ debounce: 300 }"
+        ng-change="$ctrl.filterProducts(query)"/>
+
+    <table ng-if="$ctrl.products.length">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Ingredients</th>
+                <th ng-click="$ctrl.sortProducts()">
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in $ctrl.products track by product.name">
+                <td>{{$index + 1}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.ingredients}}</td>
+                <td>{{product.price | currency}}</td>
+                <td>
+                    <button ng-click="$ctrl.addToCart(product)">
+                        Add to the cart
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div ng-if="!$ctrl.products.length">
+        There are no products matching your query
+    </div>
+</div>

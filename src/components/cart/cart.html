@@ -1,3 +1,52 @@
 <h1>
     Cart
 </h1>
+
+<table ng-if="$ctrl.products.length">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Ingredients</th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in $ctrl.products track by product.id">
+            <td>{{$index + 1}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.ingredients}}</td>
+            <td>{{product.price | currency}}</td>
+            <td>
+                <button ng-click="$ctrl.removeFromCart(product.id)">
+                    Remove from cart
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>
+                <b>{{$ctrl.total | currency}}</b>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button ng-click="$ctrl.submit()">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div ng-if="!$ctrl.products.length">
+    There are no products in your cart
+</div>

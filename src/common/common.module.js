@@ -1,9 +1,11 @@
 import angular from 'angular';
-import { BaseComponent } from './base/base.component';
-import { NavbarComponent } from './navbar/navbar.component';
+
+import BaseComponent from './base/base.component';
+import { NavbarModule } from './navbar/navbar.module';
 
 export const CommonModule = angular
-    .module('app.common', [])
+    .module('app.common', [
+        NavbarModule,
+    ])
     .component('appBase', BaseComponent)
-    .component('appNavbar', NavbarComponent)
     .name;

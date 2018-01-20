@@ -1,13 +1,13 @@
 import angular from 'angular';
 
-import { ProductsComponent } from './products/products.component';
 import { HistoryComponent } from './history/history.component';
-import { CartComponent } from './cart/cart.component';
+import { ProductsModule } from './products/products.module';
+import { CartModule } from './cart/cart.module';
 
 export const ComponentsModule = angular
-    .module('app.components', [])
-    // prefixes can be added dynamically, but for simplicity prepended here
-    .component('appProducts', ProductsComponent)
-    .component('appCart', CartComponent)
+    .module('app.components', [
+        ProductsModule,
+        CartModule
+    ])
     .component('appHistory', HistoryComponent)
     .name;

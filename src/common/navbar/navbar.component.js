@@ -1,12 +1,8 @@
-class NavbarComponentCtrl {
-
-    $onInit() {
-        console.log("navbar init");
-    }
+class NavbarComponent {
 
 }
 
-export const NavbarComponent = {
+export default {
     template: require('./navbar.html'),
-    controller: NavbarComponentCtrl
+    controller: NavbarComponent
 };
