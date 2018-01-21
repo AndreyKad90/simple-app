@@ -1,0 +1,11 @@
+<table>
+    <thead></thead>
+    <tbody>
+        <tr ng-repeat="product in $ctrl.order.products track by product.id">
+            <td>{{::product.id}}</td>
+            <td>{{::product.name}}</td>
+            <td>{{::product.ingredients}}</td>
+            <td>{{::product.price | currency}}</td>
+        </tr>
+    </tbody>
+</table>

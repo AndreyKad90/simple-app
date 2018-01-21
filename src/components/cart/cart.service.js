@@ -42,9 +42,7 @@ export default class CartService {
     }
 
     getProducts() {
-        const products = this.products.length 
-            ? this.products 
-            : getProductsFromStore();
+        const products = this.products || getProductsFromStore();
         
         return this.$q.resolve(products);
     }

@@ -25,10 +25,10 @@ angular
                 url: 'cart',
                 template: '<app-cart></app-cart>'
             })
-            .state('main.history', {
-                url: 'history',
-                template: '<app-history></app-history>'
+            .state('main.orders', {
+                url: 'orders',
+                template: '<app-orders></app-orders>'
             });
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/products');
     })

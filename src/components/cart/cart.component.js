@@ -12,7 +12,7 @@ class CartComponent {
         return this.CartService.getProducts()
             .then((products) => {
                 this.products = products;
-                this.total = this.CartService.calculateTotal(products);
+                this.total = products.length ? this.CartService.calculateTotal(products) : 0;
             });
     }
 
