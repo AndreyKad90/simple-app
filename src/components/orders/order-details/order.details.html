@@ -1,14 +1,16 @@
-<table class="table borderless">
+<table class="table borderless"
+   app-sort="$ctrl.order.products"
+   app-sort-default-field="name">
     <thead>
         <tr>
-            <th>Product Id</th>
-            <th>Name</th>
+            <th app-sort-field="id">Product Id</th>
+            <th app-sort-field="name">Name</th>
             <th>Ingredients</th>
-            <th>Price</th>
+            <th app-sort-field="price">Price</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="product in $ctrl.order.products track by product.id">
+        <tr ng-repeat="product in collection track by product.id">
             <td>{{::product.id}}</td>
             <td>{{::product.name}}</td>
             <td>{{::product.ingredients}}</td>

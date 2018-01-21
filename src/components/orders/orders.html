@@ -1,19 +1,23 @@
 <h4>
     The history of your orders
 </h4>
-<div class="mt-3">
+<div class="mt-3"
+   app-sort="$ctrl.orders"
+   app-sort-name="testCollection"
+   app-sort-default-field="date"
+   app-sort-default-order="DESC">
     <table class="table"
        ng-if="$ctrl.orders.length">
         <thead class="thead-light">
             <tr>
                 <th>Order Id</th>
-                <th>Date</th>
-                <th>Total</th>
+                <th app-sort-field="date">Date</th>
+                <th app-sort-field="total">Total</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat-start="order in $ctrl.orders track by order.id">
+            <tr ng-repeat-start="order in testCollection track by order.id">
                 <td>{{::order.id}}</td>
                 <td>{{::order.date | date: 'short'}}</td>
                 <td>{{::order.total | currency}}</td>

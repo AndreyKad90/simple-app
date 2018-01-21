@@ -11,3 +11,30 @@ input[type="text"], textarea, .btn {
 .borderless td, .borderless th {
     border: none !important;
 }
+
+.sort-asc::after {
+    content: '\f0de';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin:0px 0px 0px 10px;
+    text-decoration:none;
+}
+
+.sort-desc::after {
+    content: '\f0dd';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin:0px 0px 0px 10px;
+    text-decoration:none;
+}
+
+.sort-neutral::after {
+    content: '\f0dc';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin:0px 0px 0px 10px;
+    text-decoration:none;
+}

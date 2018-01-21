@@ -12,6 +12,12 @@ const products = [
         id: 4323
     },
     {
+        name: 'alibaba', 
+        ingredients: ['garlic', 'tomato', 'sausages', 'parmejano'],
+        price: 7.50,
+        id: 12
+    },
+    {
         name: 'meat', 
         ingredients: ['bacon', 'tomato', 'mozzarella', 'ham', 'salami'], 
         price: 12.00,

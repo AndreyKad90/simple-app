@@ -8,10 +8,6 @@ class ProductsComponent {
     }
 
     $onInit() {
-        this.sort = {
-            field: 'price',
-            order: 'ASC'
-        };
         this.ProductsService.getAllProducts()
             .then((products) => {
                 this.productsCopy = products.map(this.transformProduct);
@@ -30,21 +26,6 @@ class ProductsComponent {
         this.products = this.productsCopy.filter((product) => {
             return product.name.toLowerCase().includes(lowerCaseQuery);
         });
-    }
-
-    sortProducts() {
-        const {field, order} = this.sort;
-        let sortFn;
-
-        if (order === 'ASC') {
-            sortFn = (a, b) => a[field] - b[field];
-            this.sort.order = 'DESC';
-        } else {
-            sortFn = (a, b) => b[field] - a[field];
-            this.sort.order = 'ASC';
-        }
-
-        this.products = this.productsCopy.sort(sortFn);
     }
 
     addToCart(product) {

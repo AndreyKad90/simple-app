@@ -13,15 +13,17 @@ import { ComponentsModule } from './components/components.module';
 
 angular
     .module('app', [
+        uiRouter,
+
         CommonModule,
-        ComponentsModule,
-        uiRouter
+        ComponentsModule
     ])
     .config(($stateProvider, $urlRouterProvider) => {
         // TODO: replace the routes from here
         $stateProvider
             .state('main', {
                 url: '/',
+                abstract: true,
                 template: '<app-base></app-base>'
             })
             .state('main.products', {
