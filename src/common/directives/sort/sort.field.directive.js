@@ -1,4 +1,4 @@
-import { ORDER_TYPE } from "./order.type";
+import { ORDER_TYPE } from './order.type';
 
 const DIR_NAME = SortFieldDirective.DIR_NAME = 'appSortField'; 
 
@@ -18,7 +18,7 @@ export default function SortFieldDirective() {
             });
 
             const clearSortClasses = () => {
-                Object.values(SORT_CLASS).forEach(sortClass => element.removeClass(sortClass));
+                Object.values(SORT_CLASS).forEach((sortClass) => element.removeClass(sortClass));
             };
 
             const addSortClass = () => {
@@ -34,12 +34,12 @@ export default function SortFieldDirective() {
                 } else {
                     element.addClass(SORT_CLASS.NEUTRAL);
                 }
-            }
+            };
 
             addSortClass();
 
             // Listen for changes in any sort field so that icons can be adjusted
-            scope.$on('sort', addSortClass)
+            scope.$on('sort', addSortClass);
         }
-    }
+    };
 }
