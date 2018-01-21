@@ -1,31 +1,42 @@
-<h3>
+<h4>
     The history of your orders
-</h3>
-<div>
-    <table ng-if="$ctrl.orders.length">
-        <thead>
+</h4>
+<div class="mt-3">
+    <table class="table"
+       ng-if="$ctrl.orders.length">
+        <thead class="thead-light">
             <tr>
-                <th>Id</th>
+                <th>Order Id</th>
                 <th>Date</th>
                 <th>Total</th>
-                <th>Details</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat-start="order in $ctrl.orders track by order.id">
-                <td>{{order.id}}</td>
-                <td>{{order.date | date: 'short'}}</td>
-                <td>{{order.total | currency}}</td>
-                <td>
-                    <button ng-click="$ctrl.toggleOrderDetails(order)">
-                        Details
+                <td>{{::order.id}}</td>
+                <td>{{::order.date | date: 'short'}}</td>
+                <td>{{::order.total | currency}}</td>
+                <td class="text-right">
+                    <button class="btn btn-info" 
+                       ng-click="$ctrl.toggleOrderDetails(order)">
+                        <i class="fa" aria-hidden="true"
+                           ng-class="order.show ? 'fa-minus' : 'fa-plus'"></i>
                     </button>
                 </td>
             </tr>
-            <tr ng-repeat-end ng-if="order.show">
-                <td colspan="4">
+            <tr ng-repeat-end 
+               ng-if="order.show">
+                <td colspan="4" class="p-0">
                     <app-order-details order="order"></app-order-details>
                 </td>
+            </tr>
+            <tr class="table-light">
+                <td colspan="2" class="text-right font-weight-bold">Total</td>
+                <td class="font-weight-bold">
+                    {{::$ctrl.total | currency}}
+                </td>
+                <td></td>
             </tr>
         </tbody>
     </table>

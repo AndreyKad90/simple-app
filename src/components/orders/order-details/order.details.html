@@ -1,5 +1,12 @@
-<table>
-    <thead></thead>
+<table class="table borderless">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Ingredients</th>
+            <th>Price</th>
+        </tr>
+    </thead>
     <tbody>
         <tr ng-repeat="product in $ctrl.order.products track by product.id">
             <td>{{::product.id}}</td>

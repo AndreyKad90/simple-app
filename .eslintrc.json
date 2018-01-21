@@ -1,0 +1,20 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "linebreak-style": [2, "windows"],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "arrow-parens": [2, "always"],
+        "arrow-spacing": [2, {"before": true, "after": true}]
+    },
+    "globals": {
+        "require": true
+    }
+}

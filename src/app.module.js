@@ -1,6 +1,13 @@
+// external dependencies
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
+// external style dependencies
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+
+// project dependencies
+import './styles.css';
 import { CommonModule } from './common/common.module';
 import { ComponentsModule } from './components/components.module';
 
@@ -31,4 +38,4 @@ angular
             });
 
         $urlRouterProvider.otherwise('/products');
-    })
+    });

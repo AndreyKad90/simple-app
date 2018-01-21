@@ -1,15 +1,16 @@
 const PRODUCT_STORAGE_KEY = 'products';
+const storage = localStorage;
 
 function updateProductsInStore(products) {
-    localStorage.setItem(PRODUCT_STORAGE_KEY, JSON.stringify(products));
+    storage.setItem(PRODUCT_STORAGE_KEY, JSON.stringify(products));
 }
 
 function getProductsFromStore() {
-    return JSON.parse(localStorage.getItem(PRODUCT_STORAGE_KEY));
+    return JSON.parse(storage.getItem(PRODUCT_STORAGE_KEY));
 }
 
 function clearProductsFromStore() {
-    localStorage.removeItem(PRODUCT_STORAGE_KEY);
+    storage.removeItem(PRODUCT_STORAGE_KEY);
 }
 
 export default class CartService {
@@ -21,17 +22,21 @@ export default class CartService {
     }
 
     add(product) {
+        if (!product) {
+            return $q.reject('The product is invalid');
+        }
+
         const { $q, products } = this;
         const productExists = products.find((prod) => prod.id === product.id);
 
         if (productExists) {
-            return $q.reject('The product is already in the cart');
+            return $q.reject(`The product "${product.name}" is already in the cart`);
         }
 
         products.push(product);
         updateProductsInStore(products);
 
-        return $q.resolve('The product has been added to the cart');
+        return $q.resolve(`The product "${product.name}" has been added to the cart`);
     }
 
     remove(idToRemove) {
@@ -49,15 +54,20 @@ export default class CartService {
 
     submit() {
         return this.getProducts()
-            .then(products => {
+            .then((products) => {
                 return this.$http.post('/api/orders', {
                     date: Date.now(),
                     total: this.calculateTotal(products),
                     products
                 });
             })
-            .then(clearProductsFromStore)
+            .then(() => this.clearProducts())
             .then(() => 'Your order has been successfully submitted');
+    }
+
+    clearProducts() {
+        this.products = [];
+        clearProductsFromStore();
     }
 
     calculateTotal(products) {

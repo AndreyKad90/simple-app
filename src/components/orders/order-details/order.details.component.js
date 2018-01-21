@@ -1,9 +1,5 @@
 class OrderDetails {
 
-    $onInit() {
-        console.log("ctrl init", this);
-    }
-
 }
 
 export default {

@@ -1,5 +1,13 @@
 export default {
     template($element, $attrs) {
-        return `<a ui-sref="${$attrs.to}" ui-sref-active="active">${$element.html()}</a>`;
+        const template = `
+<li class="nav-item">
+    <a class="nav-link active"
+       ui-sref="${$attrs.to}" 
+       ui-sref-active="active">
+        ${$element.html()}
+    </a>
+</li>`;
+        return template;
     }
-}
+};

@@ -13,6 +13,7 @@ class OrdersComponent {
         this.OrdersService.getAllOrders()
             .then((orders) => {
                 this.orders = orders;
+                this.total = this.OrdersService.calculateTotal(orders);
             });
     }
 

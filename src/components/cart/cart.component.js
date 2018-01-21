@@ -9,7 +9,7 @@ class CartComponent {
     }
 
     refreshProducts() {
-        return this.CartService.getProducts()
+        this.CartService.getProducts()
             .then((products) => {
                 this.products = products;
                 this.total = products.length ? this.CartService.calculateTotal(products) : 0;
@@ -25,7 +25,7 @@ class CartComponent {
 
     submit() {
         this.CartService.submit()
-            .then((result) => {
+            .then(() => {
                 this.products = [];
                 this.total = 0;
             });
