@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static('dist'));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.use('/api', require('./api'));
 
